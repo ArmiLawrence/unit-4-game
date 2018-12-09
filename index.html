@@ -55,10 +55,10 @@
       <h4 class="card-header text-center">Pick your heroes!</h4>
       <div class="card-body">
         <div class="text-center">
-            <img id = "BC" class="img-responsive" src="assets/images/Black_Canary_Enhanced.jpg" value = "">
-            <img id = "H"  class="img-responsive" src="assets/images/Huntress.jpg" value = "">
-            <img id = "O"  class="img-responsive" src="assets/images/Oracle.jpg" value = "">
-            <img id = "WG" class="img-responsive" src="assets/images/Wonder_Girl_(Cassandra_Sandsmark_Titan).jpg" value = "">
+            <img id = "BC" class="img-responsive" src="assets/images/Black_Canary_Enhanced.jpg" >
+            <img id = "H"  class="img-responsive" src="assets/images/Huntress.jpg" >
+            <img id = "O"  class="img-responsive" src="assets/images/Oracle.jpg" >
+            <img id = "WG" class="img-responsive" src="assets/images/Wonder_Girl_(Cassandra_Sandsmark_Titan).jpg" >
         </div>
       </div>
     </div>
@@ -69,15 +69,11 @@
         var wins = 0;
         var losses = 0;
         var villainChoice = Math.floor((Math.random() * 100) + 19); 
-        var heroChoice = 0;
-        var isBCChosen = "";
-        var isHChosen = "";
-        var isOChosen = "";
-        var isWGChosen = "";    
-        var BC = 10;
-        var H = 5;
-        var O = 3;
-        var WG = 7;
+        var heroChoice = 0;  
+        var BC = Math.floor((Math.random() * 12) + 1);
+        var H = Math.floor((Math.random() * 12) + 1);
+        var O = Math.floor((Math.random() * 12) + 1);
+        var WG = Math.floor((Math.random() * 12) + 1);
 
        $("#villainChoice-text").text(villainChoice);
     
