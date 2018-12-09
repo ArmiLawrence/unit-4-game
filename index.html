@@ -55,10 +55,10 @@
       <h4 class="card-header text-center">Pick your heroes!</h4>
       <div class="card-body">
         <div class="text-center">
-            <img id = "BC" class="img-responsive" src="assets/images/Black_Canary_Enhanced.jpg" value="10">
-            <img id = "H"  class="img-responsive" src="assets/images/Huntress.jpg" value="5">
-            <img id = "O"  class="img-responsive" src="assets/images/Oracle.jpg" value="3">
-            <img id = "WG" class="img-responsive" src="assets/images/Wonder_Girl_(Cassandra_Sandsmark_Titan).jpg" value="7">
+            <img id = "BC" class="img-responsive" src="assets/images/Black_Canary_Enhanced.jpg" value = "">
+            <img id = "H"  class="img-responsive" src="assets/images/Huntress.jpg" value = "">
+            <img id = "O"  class="img-responsive" src="assets/images/Oracle.jpg" value = "">
+            <img id = "WG" class="img-responsive" src="assets/images/Wonder_Girl_(Cassandra_Sandsmark_Titan).jpg" value = "">
         </div>
       </div>
     </div>
@@ -70,24 +70,29 @@
         var losses = 0;
         var villainChoice = Math.floor((Math.random() * 100) + 19); 
         var heroChoice = 0;
+        var isBCChosen = "";
+        var isHChosen = "";
+        var isOChosen = "";
+        var isWGChosen = "";    
+        var BC = 10;
+        var H = 5;
+        var O = 3;
+        var WG = 7;
 
        $("#villainChoice-text").text(villainChoice);
-
-      
     
       
           // This time, our click event applies to every single crystal on the page. Not just one.
           $(".img-responsive").on("click", function() {
-      
-          // Determining the crystal's value requires us to extract the value from the data attribute.
-          // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
-          // Using the .attr("data-herovalue") allows us to grab the value out of the "data-herovalue" attribute.
-          // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the heroChoice
-      
-          var heroValue = ($(this).attr("value"));
+          
+            $("#BC").attr("data-value", BC);
+            $("#H").attr("data-value", H);
+            $("#O").attr("data-value", O);
+            $("#WG").attr("data-value", WG);    
+
+ 
+          var heroValue = $(this).attr("data-value");
           heroValue = parseInt(heroValue);
-          // We then add the crystalValue to the user's "heroChoice" which is a global variable.
-          // Every click, from every crystal adds to the global heroChoice.
           heroChoice += heroValue;
       
           // All of the same game win-lose logic applies. So the rest remains unchanged.
