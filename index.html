@@ -16,20 +16,23 @@
     <div class="container">
 
         <!-- Jumbotron with Title -->
-        <div class="jumbotron">
+        <div class="bg-warning jumbotron">
           <h1 class="text-center">
             <strong>Defeat the Villain!</strong>
             <hr>
-            <div id="instructions" class="text-center">
-                    <p>The player will be shown a random number at the start of the game.</p>
-                    <p>When the player clicks on a crystal, it will add a specific amount of points to the player's total score. </p>
-                    <p>The player wins if their total score matches the random number from the beginning of the game.</p>
-                    <p>The player loses if their score goes above the random number.</p>
-                    <p>The game restarts whenever the player wins or loses.</p>
-            </div>
+            <img id = "LS" class="img" src="assets/images/lady shiva.png" >               
           </h1>
+          <hr>
+          <div id="instructions" class="text-center">
+              <p>Click Lady Shiva to a random number to start the game.</p>
+              <p>When the player clicks on a hero, it will add a specific amount of points to the player's total score. </p>
+              <p>The player wins if their total score matches the random number and loses if their score goes above.</p>
+              <p>Click Lady Shiva after the player wins or loses.</p>
+          </div>
+
         </div>
     </div>
+
 
     <!-- Controls (Superpower Visibility) -->
     <div class="container">
@@ -38,7 +41,7 @@
             <p>Villain's Choice to Beat: <span id="villainChoice-text"></span></p>
           </div>
           <div class="col-sm-6">  
-              <p>Hero's Score: <span id="heroChoice-text"></span></p>
+              <p>Hero's Choice: <span id="heroChoice-text"></span></p>
             </div>
           <div class="col-sm-6">              
             <p >Wins: <span id="win-text"></span></p>
@@ -46,12 +49,15 @@
           <div class="col-sm-6">  
             <p >Loss: <span id="loss-text"></span></p>
           </div>
+          <div class="col-sm-12">  
+              <p >Final Decision: <span id="game-text"></span></p>
+          </div>
       </div>
     </div>
 
 
-    <!-- Controls (Superpower Visibility) -->
-    <div id="visibilityControls" class="card">
+    <!-- Controls (Heroes) -->
+    <div id="visibilityControls" class="card bg-danger">
       <h4 class="card-header text-center">Pick your heroes!</h4>
       <div class="card-body">
         <div class="text-center">
@@ -64,51 +70,7 @@
     </div>
 
 
-    <script type="text/javascript">
-
-        var wins = 0;
-        var losses = 0;
-        var villainChoice = Math.floor((Math.random() * 100) + 19); 
-        var heroChoice = 0;  
-        var BC = Math.floor((Math.random() * 12) + 1);
-        var H = Math.floor((Math.random() * 12) + 1);
-        var O = Math.floor((Math.random() * 12) + 1);
-        var WG = Math.floor((Math.random() * 12) + 1);
-
-       $("#villainChoice-text").text(villainChoice);
-    
-      
-          // This time, our click event applies to every single crystal on the page. Not just one.
-          $(".img-responsive").on("click", function() {
-          
-            $("#BC").attr("data-value", BC);
-            $("#H").attr("data-value", H);
-            $("#O").attr("data-value", O);
-            $("#WG").attr("data-value", WG);    
-
- 
-          var heroValue = $(this).attr("data-value");
-          heroValue = parseInt(heroValue);
-          heroChoice += heroValue;
-      
-          // All of the same game win-lose logic applies. So the rest remains unchanged.
-          $("#heroChoice-text").text(heroChoice);
-         
-      
-          if (heroChoice === villainChoice) {
-            alert("You win!");
-            wins++;
-            $("#win-text").text(wins++)
-          }
-      
-          else if (heroChoice >= villainChoice) {
-            alert("You lose!!");
-            losses++;
-            $("#loss-text").text(losses++)
-          }
-      
-        });
-
+    <script type="text/javascript" src="assets/javascript/game.js">
     </script>
 
 </body>
