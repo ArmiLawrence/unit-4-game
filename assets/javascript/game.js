@@ -10,12 +10,12 @@
       var O = 0;
       var WG = 0;
 
-
+  
     //FUNCTIONS
     
     function restartGame (){
 
-      if( wins > 2 || losses > 2){
+      if( wins > 1 || losses > 1){
         //  Reset the variables
           wins = 0;       
           losses = 0; 
@@ -89,13 +89,13 @@
     
         if (heroChoice === villainChoice) {
           wins++;
-          $("#win-text").text(wins++);
+          $("#win-text").text(wins);
           $("#game-text").text("Heroes Win! Click Lady Shiva to play again!")
 
           }      
         else if (heroChoice > villainChoice) {
           losses++;
-          $("#loss-text").text(losses++);
+          $("#loss-text").text(losses);
           $("#game-text").text("Villain Wins! Click Lady Shiva to defeat her!")
         };
     
